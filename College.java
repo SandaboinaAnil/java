@@ -3,7 +3,7 @@ class College
 	public static void main(String args[])
 	{
 		String college="Kakathiya university";
-		String course="b.tech";
+		String course="b.te";
 		String branch="civil";
 		System.out.println(college);
 		if(course=="b.tech")
