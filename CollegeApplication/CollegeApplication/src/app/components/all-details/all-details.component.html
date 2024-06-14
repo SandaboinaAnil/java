@@ -1,0 +1,70 @@
+<head>
+    <style> 
+        table, th, td {  
+            border: 1px solid black;  
+            border-collapse: collapse;  
+        }  
+        th, td {
+            padding: 10px;
+        }
+        .push-right{
+            margin-left: 359px;
+        }
+        </style>
+</head>
+    <h1 style="color: brown;" align="center">Telangana State Colleges Details</h1><br>
+    <span style="display: flex;margin-left: 200px;"><b>Add College Details : </b>
+        <button type="submit" class="btn btn-dark" (click)="addrow()">Insert</button><br>
+            <div class="push-right">
+                <input type="text" #search/>
+                <button  type="submit" (click)="Searchdata(search)">Search</button>
+            </div>
+    </span>
+<div>
+<br>
+<div *ngIf="isshow">
+    <table border=2 align="center">
+        <tr>
+            <th>College code</th>
+            <th>College name</th>
+            <th>College place</th>
+            <th>College branches</th>
+            <th>Edit</th>
+        </tr>
+        <tr *ngFor="let x of data">
+           <td> {{ x.code }}</td>
+           <td> {{x.name }}  </td>
+           <td> {{x.place}} </td>
+           <td>{{x.branches}}</td>
+           <td><button type="submit" class="btn btn-secondary" (click)="row(x.code)">Details</button>
+            <button type="submit" class="btn btn-primary" (click)="update(x.code)">Update</button>
+            <button type="submit" class="btn btn-danger" (click)="delete(x.code)">Delete</button>
+        </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!isshow">
+    <table border=2>
+        <tr>
+            <th>College code</th>
+            <th>College name</th>
+            <th>College place</th>
+            <th>College branches</th>
+            <th>Edit</th>
+        </tr>
+        <tr>
+           <td> {{searchfuction.code}}</td>
+           <td> {{searchfuction.name }}  </td>
+           <td> {{searchfuction.place}} </td>
+           <td>{{searchfuction.branches}}</td>
+           <td><button type="submit" class="btn btn-secondary" (click)="row(searchfuction.code)">Details</button>
+            <button type="submit" class="btn btn-primary" (click)="update(searchfuction.code)">Update</button>
+            <button type="submit" class="btn btn-danger" (click)="delete(searchfuction.code)">Delete</button>
+        </td>
+        </tr>
+    </table>
+</div>
+
+
+</div>
+
